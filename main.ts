@@ -18,13 +18,16 @@ export class BugDemoTreeDataProvider implements vscode.TreeDataProvider<BugDemoT
     }
 
     getTreeItem(element: BugDemoTreeItem): vscode.TreeItem {
+        console.log(`Fetching ${element.id}`);
         return element;
     }
 
     getChildren(element?: BugDemoTreeItem): vscode.ProviderResult<BugDemoTreeItem[]> {
         if (element) {
+            console.log(`Fetching children of ${element.id}`);
             return element.children;
         } else {
+            console.log(`Fetching root elements`);
             return [rootItem];
         }
     }
